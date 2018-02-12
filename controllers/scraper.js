@@ -39,7 +39,7 @@ function getArticlesFromHtml(html) {
 
   console.log(articles);
 
-  return articles;
+  return articles.filter( x => x.summary.length > 0);
 }
 
 function getHeadline(el) {
@@ -47,14 +47,7 @@ function getHeadline(el) {
 }
 
 function getSummary(el) {
-  if(typeof schema.summary.element === 'string') {
-    return $(el).children(schema.summary.element).text().trim();
-  }
-
-  for(let i = 0; i < schema.summary.element.length; i++){
-    
-  }
-  
+  return $(el).children(schema.summary.element).text().trim();
 }
 
 function getLink(el) {

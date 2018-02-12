@@ -8,28 +8,38 @@
 <body>
 
   <!-- Page header -->
-  <nav class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <p class="navbar-text">NYT Scrapper</p>
-      </div>
-    </div>
-  </nav>
+  <%- include('./partials/navbar.ejs', {page: "index"}) %>
 
-  <div class="container" id="nav-container">
-    <div class="row">
-      <ul class="nav nav-tabs">
-        <li role="presentation" class="active">
-          <a href="#">Current Articles</a>
-        </li>
-        <li role="presentation">
-          <a href="/saved">Saved Articles</a>
-        </li>
-      </ul>
+
+  <div class="row" id="article-row">
+    <div class="container">
+      <%  articles.forEach( a => {  %>
+        <div class="well well-sm">
+          <div class="row">
+            <div class="col-xs-10 article-col">
+              <h4>
+                <a href=<%= a.link %>>
+                  <%= a.headline %>
+                </a>
+              </h4>
+              <p>
+                <%= a.summary %>
+              </p>
+              <p>
+                <%= a.byline %>
+              </p>
+            </div>
+            <div class="col-xs-2 btn-col">
+              <button class="btn btn-primary save-btn">Save</button>
+            </div>
+          </div>
+        </div>
+        <%  });  %>
     </div>
   </div>
 
   <%- include('./partials/scripts.ejs') %>
+
 </body>
 
 </html>

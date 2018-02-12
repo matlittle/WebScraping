@@ -1,4 +1,3 @@
-
 module.exports = {
   topContainer: ".story",
   headline: {

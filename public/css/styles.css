@@ -1,7 +1,15 @@
-#nav-container {
+#nav-row {
   margin-top: 60px;
 }
 
-.nav .nav-tabs {
-  margin: 30px;
+#article-row {
+  margin-top: 20px;
+}
+
+ul.nav-tabs li:first-child {
+  margin-left: 30px;
+}
+
+.btn-col {
+  text-align: center;
 }
