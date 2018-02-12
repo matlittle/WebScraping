@@ -10,8 +10,10 @@ module.exports = (app) => {
     res.render('index.ejs', {articles: newArticles});
   });
 
-  app.get('/saved', (req, res) => {
-    res.render('saved.ejs');
+  app.get('/saved', async (req, res) => {
+    const savedArticles = await articles.retreiveArticles();
+
+    res.render('saved.ejs', {articles: savedArticles});
   });
 
 

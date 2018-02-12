@@ -23,18 +23,14 @@ function getArticlesFromHtml(html) {
   $ = cheerio.load(html);
 
   const articles = [];
-  let idx = 0;
 
   $(schema.topContainer).each( (i, el) => {
-    if(idx < 5) {
-      articles.push({
-        headline: getHeadline(el),
-        summary: getSummary(el),
-        link: getLink(el),
-        byline: getByline(el)
-      });
-    }
-    idx++;
+    articles.push({
+      headline: getHeadline(el),
+      summary: getSummary(el),
+      link: getLink(el),
+      byline: getByline(el)
+    });
   }); 
 
   console.log(articles);

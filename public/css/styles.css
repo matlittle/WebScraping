@@ -2,7 +2,8 @@
   margin-top: 60px;
 }
 
-#article-row {
+#article-row,
+#saved-row {
   margin-top: 20px;
 }
 
@@ -12,4 +13,8 @@ ul.nav-tabs li:first-child {
 
 .btn-col {
   text-align: center;
+}
+
+.save-btn {
+  margin-top: 10px;
 }
