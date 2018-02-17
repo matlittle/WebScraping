@@ -13,20 +13,8 @@
   <div class="row" id="saved-row">
     <div class="container">
       <%  articles.forEach( a => {  %>
-        <div class="well">
-          <h4>
-            <a href=<%=a .link %>>
-              <%= a.headline %>
-            </a>
-          </h4>
-          <p>
-            <%= a.summary %>
-          </p>
-          <p>
-            <%= a.byline %>
-          </p>
-        </div>
-        <%  });  %>
+        <%- include('./partials/article.ejs', {article: a}) %>
+      <%  });  %>
     </div>
   </div>
 
