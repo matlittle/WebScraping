@@ -14,11 +14,11 @@
   <div class="row" id="article-row">
     <div class="container">
       <%  articles.forEach( a => {  %>
-        <div class="well well-sm">
+        <div class="well">
           <div class="row">
             <div class="col-xs-10 article-col">
               <h4>
-                <a href=<%= a.link %>>
+                <a target="_blank" href=<%= a.link %>>
                   <%= a.headline %>
                 </a>
               </h4>
@@ -29,8 +29,8 @@
                 <%= a.byline %>
               </p>
             </div>
-            <div class="col-xs-2 btn-col">
-              <button class="btn btn-primary save-btn">Save</button>
+            <div class="col-xs-2 article-btn-col">
+              <button class="btn btn-primary save-article-btn">Save</button>
             </div>
           </div>
         </div>

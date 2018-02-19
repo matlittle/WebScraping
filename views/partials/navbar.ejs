@@ -1,32 +1,17 @@
-<nav class="navbar navbar-default navbar-fixed-top">
+<nav class="navbar navbar-default">
   <div class="container-fluid">
     <div class="navbar-header">
       <p class="navbar-text">NYT Scrapper</p>
     </div>
+
+    <ul class="nav navbar-nav">
+      <% if (page === 'index') { %> 
+        <li class="active"><a href="#">Current Articles</a></li>
+        <li><a href="/saved">Saved Articles</a></li>
+      <% } else { %>
+        <li><a href="/">Current Articles</a></li>
+        <li class="active"><a href="#">Saved Articles</a></li>
+      <% } %>
+    </ul>
   </div>
 </nav>
-
-<div class="row" id="nav-row">
-  <div class="container-fluid">
-    <div class="row">
-      <ul class="nav nav-tabs">
-        <li role="presentation" <% if(page==="index") {%>class="active"
-          <% } %>>
-            <a href=<% if(page==="index") {%>
-              "#"
-              <% } else { %>
-                "/"
-                <% } %>> Current Articles</a>
-        </li>
-        <li role="presentation" <% if(page==="saved") {%>class="active"
-          <% } %>>
-            <a href=<% if(page==="saved") {%>
-              "#"
-              <% } else { %>
-                "/saved"
-                <% } %>> Saved Articles</a>
-        </li>
-      </ul>
-    </div>
-  </div>
-</div>

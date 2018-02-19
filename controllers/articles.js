@@ -11,39 +11,43 @@ module.exports.getNewArticles = async () => {
 
 
 module.exports.saveArticle = async article => {
-  const result = await db.Articles.create(article);
+  const findResult = await db.Articles.findOne({link: article.link});
 
-  console.log(result);
-  return result;
+  if (findResult) {
+    return findResult;
+  }
+
+  const createResult = await db.Articles.create(article);
+  return createResult;
 }
 
 module.exports.retreiveArticles = async () => {
-  const articles = await db.Articles.find({})
+  const articles = await db.Articles.find({}).populate('notes');
   
-  console.log(articles);
   return articles;
 }
 
-module.exports.getArticle = async (id) => {
-  const article = db.Article.findOne({_id: id}).populate('note');
-
-  console.log(article);
-  return article;
-}
-
 module.exports.saveNote = async (note, id) => {
-  const noteResult = await db.Note.create(note);
-
-  console.log(noteResult);
+  const noteResult = await db.Notes.create(note);
 
   const articleResult = await 
-    db.Article.findOneAndUpdate(
-      {_id: id}, 
-      {note: noteResult._id}, 
-      {new: true}
+    db.Articles.findOneAndUpdate(
+      { _id: id }, 
+      { $push: {notes: noteResult._id} }, 
+      { new: true }
     );
 
-  console.log(articleResult);
-
   return articleResult;
+}
+
+module.exports.deleteArticle = async (id) => {
+  const result = await db.Articles.remove({_id: id});
+
+  return result;
+}
+
+module.exports.deleteNote = async (id) => {
+  const result = await db.Notes.remove({_id: id});
+
+  return result;
 }

@@ -11,10 +11,19 @@ ul.nav-tabs li:first-child {
   margin-left: 30px;
 }
 
-.btn-col {
+.article-btn-col,
+.note-btn-col {
   text-align: center;
 }
 
-.save-btn {
+.save-article-btn {
   margin-top: 10px;
+}
+
+.delete-note-btn:hover {
+  cursor: pointer;
+}
+
+.note-header {
+  font-weight: bold;
 }

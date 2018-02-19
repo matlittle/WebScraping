@@ -13,6 +13,8 @@ module.exports = (app) => {
   app.get('/saved', async (req, res) => {
     const savedArticles = await articles.retreiveArticles();
 
+    console.log(savedArticles);
+
     res.render('saved.ejs', {articles: savedArticles});
   });
 
