@@ -15,6 +15,10 @@
       <%  articles.forEach( a => {  %>
         <%- include('./partials/article.ejs', {article: a}) %>
       <%  });  %>
+
+      <% if (articles.length === 0) { %>
+        <h3 class="page-header text-center">You don't have any saved articles yet!</h3>
+      <% } %>
     </div>
   </div>
 

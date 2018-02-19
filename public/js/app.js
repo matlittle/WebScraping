@@ -13,8 +13,6 @@ $('.save-article-btn').click(function(e) {
 
   $(this).parent().parent().parent().remove();
 
-  console.log(article);
-
   saveArticle(article);
 });
 
@@ -42,9 +40,6 @@ $('.save-note-btn').click(function(e) {
   const id = $(this).attr('data-article-id');
 
   const note = $('#note-text').val().trim();
-
-  console.log(note);
-  console.log(id);
 
   $.post(`./api/article/${id}`, {body: note}, function(res) {
     console.log(res);
@@ -74,7 +69,6 @@ $('.delete-note-btn').click(function(e) {
   const id = $(this).attr('data-note-id');
 
   const ulElement = $(this).parent().parent();
-  console.log(ulElement);
 
   $(this).parent().remove();
 
